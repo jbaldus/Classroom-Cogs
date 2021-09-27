@@ -1,0 +1,10 @@
+{
+	"author": [
+		"Jason Baldus"
+	],
+	"name": "ClassroomCogs",
+	"description": "A bunch of cogs I use for managing a classroom server.",
+	"install_msg": "Thanks for installing my repository. Documentation is still in progress.",
+	"short": "Cogs for managing students",
+	"tags": ["Education"]
+}
