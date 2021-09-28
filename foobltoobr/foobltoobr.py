@@ -561,6 +561,6 @@ class Foobltoobr(commands.Cog):
 
     def oobify_hits(self, message: str, hits: Set[str]) -> str:
         oobified_message = message
-        for each hit in hits:
+        for hit in hits:
             oobified_message = oobified_message.replace(hit, self.oobify(hit))
         return oobified_message
