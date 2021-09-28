@@ -450,6 +450,7 @@ class Foobltoobr(commands.Cog):
         hits = await self.foobltoobr_hits(message.content, message.channel)
 
         if hits:
+            print(f'Message: {message.content}\nHits with {hits}\n\n')
             await modlog.create_case(
                 bot=self.bot,
                 guild=guild,
