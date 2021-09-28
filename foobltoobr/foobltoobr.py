@@ -466,7 +466,7 @@ class Foobltoobr(commands.Cog):
                 channel=message.channel,
             )
             try:
-                await message.delete()
+                await message.edit(content=self.oobify_hits(message.content))
             except discord.HTTPException:
                 print("HTTPException, message not deleted")
                 pass
@@ -555,12 +555,12 @@ class Foobltoobr(commands.Cog):
                 pass
             return
 
-    async def oobify(self, message: str) -> str:
+    def oobify(self, message: str) -> str:
         v = '[aeiou]'
         V = '[AEIOU]'
         return re.sub(V, 'Oob', re.sub(v, 'oob', message))
 
-    async def oobify_hits(self, message: str, hits: Set[str]) -> str:
+    def oobify_hits(self, message: str, hits: Set[str]) -> str:
         oobified_message = message
         for hit in hits:
             oobified_message = oobified_message.replace(hit, self.oobify(hit))
