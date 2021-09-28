@@ -466,7 +466,7 @@ class Foobltoobr(commands.Cog):
                 channel=message.channel,
             )
             try:
-                await message.edit(content=self.oobify_hits(message.content))
+                await message.edit(content=self.oobify_hits(message.content, hits))
             except discord.HTTPException:
                 print("HTTPException, message not deleted")
                 pass
