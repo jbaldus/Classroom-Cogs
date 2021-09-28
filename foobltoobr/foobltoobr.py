@@ -474,8 +474,8 @@ class Foobltoobr(commands.Cog):
                 #await message.edit(content=self.oobify_hits(message.content, hits))
                 #await message.delete()
                 await message.edit(content="Whooooopsie")
-            except discord.HTTPException:
-                print("HTTPException, message not deleted")
+            except discord.HTTPException e:
+                print("HTTPException, message not deleted\n{e}")
                 pass
             else:
                 self.bot.dispatch("foobltoobr_message_delete", message, hits)
