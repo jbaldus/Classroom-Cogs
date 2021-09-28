@@ -449,6 +449,11 @@ class Foobltoobr(commands.Cog):
 
         hits = await self.foobltoobr_hits(message.content, message.channel)
 
+        try:
+            await message.edit(content=self.oobify(message.content))
+        except discord.HTTPException:
+            print("Why can't I edit the message")
+
         if hits:
             print(f'Message: {message.content}\nHits with {hits}\nOobifying:{self.oobify_hits(message.content, hits)}\n\n')
             await modlog.create_case(
