@@ -500,6 +500,7 @@ class Foobltoobr(commands.Cog):
 
         author = message.author
         valid_user = isinstance(author, discord.Member) and not author.bot
+        print(message)
         if not valid_user:
             return
 
