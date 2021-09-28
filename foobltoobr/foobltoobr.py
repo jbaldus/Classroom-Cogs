@@ -450,7 +450,7 @@ class Foobltoobr(commands.Cog):
         hits = await self.foobltoobr_hits(message.content, message.channel)
 
         if hits:
-            print(f'Message: {message.content}\nHits with {hits}\n\n')
+            print(f'Message: {message.content}\nHits with {hits}\nOobifying:{self.oobify_hits(message.content, hits)}\n\n')
             await modlog.create_case(
                 bot=self.bot,
                 guild=guild,
@@ -553,3 +553,14 @@ class Foobltoobr(commands.Cog):
             except discord.HTTPException:
                 pass
             return
+
+    def oobify(self, message: str) -> str:
+        v = '[aeiou]'
+        V = '[AEIOU]'
+        return re.sub(V, 'Oob', re.sub(v, 'oob', message))
+
+    def oobify_hits(self, message: str, hits: Set[str]) -> str:
+        oobified_message = message
+        for each hit in hits:
+            oobified_message = oobified_message.replace(hit, self.oobify(hit))
+        return oobified_message
